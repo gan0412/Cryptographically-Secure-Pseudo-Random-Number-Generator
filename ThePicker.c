@@ -32,13 +32,14 @@ int main(){
         int currind = 0;
         char ch;
         //keep reading number until reaching index in line
-        while (fscanf(fileptr, "%c", &ch) == 1)
+        fscanf(fileptr, "%c", &ch);
+        while (ch != '\n')
         {
             //everytime currind = index, write the read character to output 
             //everytime a space is encountered, add one to currind 
             
             // printf("%d\n", ch);
-            if (currind==index){
+            if (currind==index & ch!=' '){
                 // *bufpoint = currint;
                 fputc(ch, output);
             }
@@ -46,8 +47,12 @@ int main(){
             if (ch==' '){
                 currind++;
             }
+            fscanf(fileptr, "%c", &ch);
             
         }
+        // fscanf(fileptr, "%c", &ch);
+        // fscanf(fileptr, "%c", &ch);
+
         // bufpoint++;
 
         //read number of index
