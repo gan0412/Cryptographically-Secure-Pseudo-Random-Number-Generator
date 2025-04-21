@@ -14,76 +14,40 @@ int main(){
         return 1;
     }
 
-
     //open output file
     FILE* output;
     output = fopen("output.txt", "w");
-
-
-    //get index
-    // int* bufpoint = buffer;
 
     //read number of index in input using fileptr
     for (int i = 0; i<100; i++){
         //pick random index from 1-99
         int index = rand()%100;
-        // printf("%d\n", index);
 
+        //initialize current index on current line, and current character var 
         int currind = 0;
         char ch;
-        //keep reading number until reaching index in line
+
+        //keep reading every number until new line (end of line) is reached 
         fscanf(fileptr, "%c", &ch);
         while (ch != '\n')
         {
-            //everytime currind = index, write the read character to output 
-            //everytime a space is encountered, add one to currind 
-            
-            // printf("%d\n", ch);
+            //write to output when number with chosen index is reached and it is not space 
             if (currind==index & ch!=' '){
-                // *bufpoint = currint;
                 fputc(ch, output);
             }
             
+            //when space is reached, new number or index has started 
             if (ch==' '){
                 currind++;
             }
             fscanf(fileptr, "%c", &ch);
             
         }
-        // fscanf(fileptr, "%c", &ch);
-        // fscanf(fileptr, "%c", &ch);
 
-        // bufpoint++;
-
-        //read number of index
-        //store in buffer[i]
-        //move fileptr to next line 
         
     }
 
-    //add to buffer
-
-    //go to next line 
-
-    //repeat again (100 times)
     fclose(fileptr);
     fclose(output);
-
-    // for (int k=0; k<100; k++){
-    //     printf("%d ", buffer[k]);
-    // }
-    // FILE* output;
-    // output = fopen("output.txt", "w");
-
-    // if (output==NULL){
-    //     perror("Error opening output file");
-    //     return 1;
-    // }
-
-    // for (int k=0; k<100; k++){
-    //     fprintf(output, "%d ", buffer[k]);
-    // }
-
-    // fclose(output);
     return 0;
 }

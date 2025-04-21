@@ -19,6 +19,5 @@ int main(){
         fprintf(fileptr, "\n");
     }
     fclose(fileptr);
-
 }
 
