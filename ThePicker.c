@@ -2,14 +2,36 @@
 #include <stdlib.h>
 #include <string.h>
 
-//picks number from each line in increasing index, store each one in buffer
+//clearing the file
+int remove(FILE *file) {
+    char filename[100];
 
+    printf("Enter the filename: ");
+    scanf("%s", filename);
+
+    file = fopen(filename, "w"); 
+
+    if (file == NULL) {
+        printf("Error opening the file.\n");
+        return 1;
+    }
+
+    fclose(file);
+
+    printf("Contents of '%s' deleted successfully.\n", filename);
+
+    return 0;
+}
+
+
+//picks number from each line in increasing index, store each one in buffer
 int main(){
     //open input file, set up buffer
     FILE* fileptr;
     fileptr = fopen("input.txt", "r");
     char line[400];
     int array[100]; 
+    remove(fileptr);
 
     const char delimeter = ' ';
 
@@ -44,18 +66,20 @@ int main(){
 
         //tokenize the line (it will give first pointer)
         char* num = strtok(line, " ");
-        int currind = 0;
 
         //keep incrementing pointer, until correct index is encoutnered 
         //then just pick the chosen index
-        while (num != NULL & (currind != index)){
+        while (((num != NULL) & (currind != index))){
             // printf("%s ", num);
             num = strtok(NULL, " ");
             currind++;
         }
 
         //write that element to output file 
-        fputc(num, output);
+        while (*num!='\0'){
+            fputc(*num, output);
+            num++;
+        }
         //go to next line
 
         
