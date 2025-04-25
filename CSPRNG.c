@@ -3,7 +3,7 @@
 #include <time.h>
 
 
-int main(){
+void generate(){
     FILE* fileptr;
     fileptr = fopen("input.txt", "wb");
 
@@ -11,7 +11,7 @@ int main(){
         perror("Error opening file!");
         exit(1);
     }
-
+    srand(time(NULL));
     for (int i = 0; i<100; i++){
         for (int j = 0; j<100; j++){
             fprintf(fileptr, "%d ", rand()%100 + 1);
@@ -19,5 +19,9 @@ int main(){
         fprintf(fileptr, "\n");
     }
     fclose(fileptr);
+}
+
+int main(){
+    generate();
 }
 

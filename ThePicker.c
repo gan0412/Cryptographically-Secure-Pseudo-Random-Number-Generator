@@ -3,35 +3,35 @@
 #include <string.h>
 
 //clearing the file
-int remove(FILE *file) {
-    char filename[100];
+// int rem(FILE *file) {
+//     char filename[100];
 
-    printf("Enter the filename: ");
-    scanf("%s", filename);
+//     printf("Enter the filename: ");
+//     scanf("%s", filename);
 
-    file = fopen(filename, "w"); 
+//     file = fopen(filename, "w"); 
 
-    if (file == NULL) {
-        printf("Error opening the file.\n");
-        return 1;
-    }
+//     if (file == NULL) {
+//         printf("Error opening the file.\n");
+//         return 1;
+//     }
 
-    fclose(file);
+//     fclose(file);
 
-    printf("Contents of '%s' deleted successfully.\n", filename);
+//     printf("Contents of '%s' deleted successfully.\n", filename);
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 //picks number from each line in increasing index, store each one in buffer
-int main(){
+int choose(){
     //open input file, set up buffer
     FILE* fileptr;
     fileptr = fopen("input.txt", "r");
     char line[400];
     int array[100]; 
-    remove(fileptr);
+    // rem(fileptr);
 
     const char delimeter = ' ';
 
@@ -107,4 +107,8 @@ int main(){
     fclose(fileptr);
     fclose(output);
     return 0;
+}
+
+int main(){
+    choose();
 }
