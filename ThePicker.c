@@ -23,9 +23,11 @@ int choose(){
     FILE* output;
     output = fopen("output.txt", "w");
 
+    srand(time(NULL));
+
+
     //read number of index in input using fileptr
     for (int i = 0; i<100; i++){
-        srand(time(NULL));
 
         //pick random index from 1-99
         int index = rand()%100;
