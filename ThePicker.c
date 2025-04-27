@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+
 
 
 //picks number from each line in increasing index, store each one in buffer
@@ -23,6 +25,8 @@ int choose(){
 
     //read number of index in input using fileptr
     for (int i = 0; i<100; i++){
+        srand(time(NULL));
+
         //pick random index from 1-99
         int index = rand()%100;
 

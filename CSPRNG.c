@@ -14,7 +14,7 @@ void generate(){
     srand(time(NULL));
     for (int i = 0; i<100; i++){
         for (int j = 0; j<100; j++){
-            fprintf(fileptr, "%d ", rand()%100 + 1);
+            fprintf(fileptr, "%c ", rand()%94 + 33);
         }
         fprintf(fileptr, "\n");
     }
