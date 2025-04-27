@@ -3,8 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-
-
 //picks number from each line in increasing index, store each one in buffer
 int choose(){
     //open input file, set up buffer
