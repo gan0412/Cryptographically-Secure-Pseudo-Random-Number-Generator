@@ -3,6 +3,12 @@
 #include <time.h>
 
 
+#define ROWS 100
+#define COLUMNS 100
+#define FIRST_ASCII 33
+#define ASCII_LIMIT 94
+
+
 void generate(){
     FILE* fileptr;
     fileptr = fopen("input.txt", "wb");
@@ -12,9 +18,9 @@ void generate(){
         exit(1);
     }
     srand(time(NULL));
-    for (int i = 0; i<100; i++){
-        for (int j = 0; j<100; j++){
-            fprintf(fileptr, "%c ", rand()%94 + 33);
+    for (int i = 0; i<ROWS; i++){
+        for (int j = 0; j<COLUMNS; j++){
+            fprintf(fileptr, "%c ", rand()%ASCII_LIMIT + FIRST_ASCII);
         }
         fprintf(fileptr, "\n");
     }

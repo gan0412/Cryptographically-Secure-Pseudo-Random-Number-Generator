@@ -3,6 +3,11 @@
 #include <string.h>
 #include <time.h>
 
+#define ROWS 100
+#define CHAR_NUM_PER_ROW 100
+
+
+
 //picks number from each line in increasing index, store each one in buffer
 int choose(){
     //open input file, set up buffer
@@ -25,14 +30,13 @@ int choose(){
 
 
     //read number of index in input using fileptr
-    for (int i = 0; i<100; i++){
+    for (int i = 0; i<ROWS; i++){
 
         //pick random index from 1-99
-        int index = rand()%100;
+        int index = rand()%CHAR_NUM_PER_ROW;
 
         //initialize current index on current line, and current character var 
         int currind = 0;
-        char ch;
 
         //store current line in line
         fgets(line, sizeof(line), fileptr);
